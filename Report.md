@@ -72,3 +72,21 @@ Qn .3
 What did the console warning in step 5 say, in your own words?
 
 Just remeber, for a list mapped it via a stable key
+
+# Task 4 by claude
+
+1. Moved friends array and import is succesful
+
+**Generate Support Material, Support Received from team member named GPT**
+
+2. Link makes a card clickable and navigates the page without full reload
+- `import Link from next/link`
+
+3. Wrap each of the card components in that `Link`, it is analogus to wrapping a image or something in an anchor `<a>` tag. Add parameters `id` and `href`.`href` pointed to `/friends/{`friend.id`}`. Which is enclosed inside the map function
+
+4. Created as instructed
+
+5. `find` function is correctly implemeted, returning friend : `undefined | friend`
+
+6. If `undefined` then we return `notfound()` imported form the next/link
+
