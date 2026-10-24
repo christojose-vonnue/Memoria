@@ -36,4 +36,11 @@ Automatically installed following packages
 
 I can confirm that the local host is showing the default setup, with Next.js 
 
+# Task 2 by claude
 
+1. Switched to a new branch 'phase2-react-basics',Successfully Re-rendered the h1 tag, Memoria, without manual referesh
+2. Created Components Folder
+3. Steps 3-5 Done
+6. import FriendCard from "@/components/FriendCard";
+7. Property 'bio' is missing in type '{ name: string; }' but required in type '{ name: string; bio: string; }'
+8. commited -m "feat: add FriendCard component with props"
