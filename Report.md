@@ -90,3 +90,15 @@ Just remeber, for a list mapped it via a stable key
 
 6. If `undefined` then we return `notfound()` imported form the next/link
 
+# Task 5 by claude
+
+1. Children is rendered in the function `RootLayout` of type `LayoutProps` in the file layout.tsx
+2. Created nav element above children with two links
+3. Created type Memory
+4. Exported 3 typed memories
+5. Component Memory card is made as required.
+6. All memories are mapped and displayed.
+7. nav behoviour is verified
+8. Before commit, I would like to add a Home Link to the nav.. ?? how
+Also I changed the content of Home() to simple WElcome message and added all the friend card to the friends/page.tsx so that  http://localhost:3000/friends have something to display
+
