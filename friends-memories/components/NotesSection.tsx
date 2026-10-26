@@ -1,17 +1,18 @@
 "use client";
+import { Note } from "@/types/type";
 import { useState } from "react";
 
 export default function NotesSection() {
     const [text, setText] = useState("")
-    const [notes, setNotes] = useState<string[]>([])
+    const [notes, setNotes] = useState<Note[]>([])
     return (
         <>
             <hr />
             <h2>Notes</h2>
             {
-                notes.map((note, index) => (
-                    <div key={index}>
-                        * {note}  <br />
+                notes.map((note) => (
+                    <div key={note.id}>
+                        * {note.text}  <button onClick={()=> setNotes(notes.filter(n => n.id!==note.id))}>🗑️</button><br />
                     </div>
                 )
                 )
@@ -23,7 +24,7 @@ export default function NotesSection() {
             </label>
             <button onClick={() => {
                 if (text.trim() != "") {
-                    setNotes([...notes, text]);
+                    setNotes([...notes, {id:crypto.randomUUID(),text}]);
                     // notes.push(text)
                     setText("")
                 }

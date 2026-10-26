@@ -124,3 +124,12 @@ But no issues or visible changes are seen or observed initially as `setText("")`
 
 3. The phase in which we actually connect the react to a backend database will retain the memory
 
+# Task 7 by claude
+
+1. Added Type,updated state
+2. REmoved
+3. crypto.randomUUID() is used 
+4. Rendered
+5. Delete button is rendered and functional
+6. THis is hard to judge visually, but we can logically conclude that index is not safe
+7. commited
