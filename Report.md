@@ -102,3 +102,25 @@ Just remeber, for a list mapped it via a stable key
 8. Before commit, I would like to add a Home Link to the nav.. ?? how
 Also I changed the content of Home() to simple WElcome message and added all the friend card to the friends/page.tsx so that  http://localhost:3000/friends have something to display
 
+# Task 6 by Claude
+
+1. Repeated the same, memories/:id rendering properly
+2. Create NotesSection card, 1. It exports function , 2. displays notes 3. Add button adds Non "" trimmed text to the notes state
+3. Implemented a state const [notesKey, setKey] = useState<number>(1) and inside each map,setKey(notesKey+1) is implemented for now.But This caused recursive loops of re-rendering, so i had  use index instead .. which will become unstable once if we add delete notes option
+4. Successfully called NotesSection componenet
+5. Implemented notes.push
+But no issues or visible changes are seen or observed initially as `setText("")` created a rerender, both of setstates were commented and then on observing, the UI was not being updated
+
+❓ Checkpoint 6
+
+1. Why does notes.push(text) fail to update the screen, while setNotes([...notes, text]) works?
+2. Why does "use client" go on NotesSection and not on the whole detail page?
+3. What happens to your notes when you refresh, and which later phase fixes it?
+
+1. Unfortunately it does not fail to update the screen, notes.push is working
+
+
+2. Well we use react states in the component to we require use state in th component not in the details page
+
+3. The phase in which we actually connect the react to a backend database will retain the memory
+
