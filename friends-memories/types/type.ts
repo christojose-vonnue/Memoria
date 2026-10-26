@@ -10,3 +10,8 @@ export interface Memory{
     date:string,
     description:string
 }
+
+export interface Note{
+    id:string,
+    text:string
+}
