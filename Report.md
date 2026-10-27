@@ -133,19 +133,3 @@ But no issues or visible changes are seen or observed initially as `setText("")`
 5. Delete button is rendered and functional
 6. THis is hard to judge visually, but we can logically conclude that index is not safe
 7. commited
-
-# Task 8 BY claude
-
-1. Signed Up with github and createda n account.
-2. Created Table, and entered 4 entries
-3. RLS and policy is enabled
-4. Found connect in dashboard and copied .env.local file
-5. Verified git status does not have .env file
-6. exported const supabase
-7. used the supabase const for entering query and retreiving data
-8. Updated all subsequent, types and all functions
-9. Data will not be fetched
-10. commited
-
-
-

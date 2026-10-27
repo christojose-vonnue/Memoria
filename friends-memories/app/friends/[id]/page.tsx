@@ -1,11 +1,8 @@
-import { supabase } from "@/lib/supabase"
+import { sample } from "@/data/friends"
 import { notFound } from "next/navigation"
 export default async function FriendPage({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
-    const {data,error}=await supabase.from("PROFILES").select("*")
-    if(error) return (<p>Error Message : {error.message}</p>)
-    if(!data) return (<p>YOu have no friends</p>)
-    const friend = data.find((friend => friend.id === id))
+    const friend = sample.find((friend => friend.id === Number(id)))
     if (!friend) {
         notFound()
     }
