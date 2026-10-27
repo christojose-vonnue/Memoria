@@ -147,15 +147,5 @@ But no issues or visible changes are seen or observed initially as `setText("")`
 9. Data will not be fetched
 10. commited
 
-# Task 9 by claude
 
-1. Removed Array lookup
-2. Handled outcomes and errors
-3. Invalid input syntax for type uuid: "abc"
-4. No files use @data/friends.ts, SO the file is deleted
-5. The build is working
-6. commited 
 
-Ans 1. `.single()` Expects either returns the object or throws error if the row is not found, but maybe single returns `[]`
-Ans 2. Because  ` invalid input syntax for type uuid:` the synatx is wrog for the type uuid
-Ans 3. `Error: Module not found: Can't resolve '@/data/friends'` Build confirms if all import exists, Additionaly i changes the freinds type to string, but  the friends data still had previous no.s like (7,10,70) This issue was also reported by the build command
