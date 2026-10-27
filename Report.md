@@ -133,3 +133,26 @@ But no issues or visible changes are seen or observed initially as `setText("")`
 5. Delete button is rendered and functional
 6. THis is hard to judge visually, but we can logically conclude that index is not safe
 7. commited
+
+
+# Task 8 by Claude
+
+1. Google Cloud Console: create a project and configure the OAuth consent screen. While it’s in testing mode, add yourself and your friends’ Gmail addresses as test users. Then create an OAuth client of type Web application.
+2. In Supabase, open Authentication, then Providers, then Google. Enable it and copy the callback URL it shows.
+3. Paste that callback URL into the Google client’s Authorized redirect URIs. Copy the Google client ID and secret into the Supabase Google provider, and save.
+4. installed @supabase/ssr
+
+- Sign-in with Google console, A project was automatically created
+- Renamed the project to 'memoria'
+- Went to **Google AUth Platform**
+- Clicked **Get started**
+- Entered the working email and details
+- Under **Audience** , selected external
+- Add test users
+- Opened Google Auth Platform → Clients.
+- Created a new client
+- Went back to supabase, 
+- Under Authentication, enabled Google, copied redirecturl
+- Using that created CLient in google cloud console, clients's ID nad SECRET, Pasted it to supabse and saved
+
+5. 
