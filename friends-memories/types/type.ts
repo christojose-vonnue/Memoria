@@ -1,5 +1,5 @@
 export interface Friend{
-    id:number,
+    id:string,
     name:string,
     bio:string
 }
