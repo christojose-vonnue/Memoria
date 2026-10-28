@@ -1,7 +1,16 @@
 import NotesSection from "@/components/NotesSection"
 import { memories } from "@/data/memories"
 import { notFound } from "next/navigation"
-export default async function MemoryPage({ params }: { params: Promise<{ id: string }> }) {
+import { Suspense } from "react"
+export default function MemoryPage({ params }: { params: Promise<{ id: string }> }) {
+    return (
+        <Suspense fallback={<p>Loading...</p>}>
+            <MemoryDetail params={params} />
+        </Suspense>
+    )
+}
+
+async function MemoryDetail({ params }: { params: Promise<{ id: string }> }) {
     const { id } = await params
     const memory = memories.find((memory => memory.id === id))
     if (!memory) {

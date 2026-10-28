@@ -1,6 +1,15 @@
 import { createClient } from "@/lib/supabase/client"
 import { notFound } from "next/navigation"
-export default async function FriendPage({ params }: { params: Promise<{ id: string }> }) {
+import { Suspense } from "react"
+export default function FriendPage({ params }: { params: Promise<{ id: string }> }) {
+    return (
+        <Suspense fallback={<p>Loading... </p>}>
+            <FriendDetail params={params} />
+        </Suspense>
+    )
+}
+
+async function FriendDetail({params}:{params:Promise<{id:string}>}) {
     const supabase=await createClient()
     const { id } = await params
     const {data,error}=await supabase.from("PROFILES").select("*").eq("id",id).maybeSingle()

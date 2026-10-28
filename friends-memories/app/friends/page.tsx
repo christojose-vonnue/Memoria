@@ -1,7 +1,16 @@
 import FriendCard from "@/components/FriendCard";
 import { createClient } from "@/lib/supabase/client";
 import Link from "next/link";
-export default async function FriendsPage() {
+import { Suspense } from "react";
+export default function FriendsPage() {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+        <Memories />
+    </Suspense>
+  )
+}
+
+async function Memories() {
   const supabase= await createClient()
   const {data,error}=await supabase.from("PROFILES").select("*")
   if(error) return (<p> Failed to load friends {error.message} </p>)

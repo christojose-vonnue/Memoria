@@ -1,8 +1,16 @@
 import MemoryCard from "@/components/MemoryCard";
 import { memories } from "@/data/memories";
 import Link from "next/link";
+import { Suspense } from "react";
+export default function MemoriesPage() {
+    return (
+        <Suspense fallback={<p>Loading...</p>}>
+            <Memories />
+        </Suspense>
+    )
+}
 
-export default async function MemoriesPage() {
+async function Memories() {
     return (<>
         <h1>Memories</h1>
         {memories.map((memory) => (
