@@ -1,6 +1,7 @@
-import { supabase } from "@/lib/supabase"
+import { createClient } from "@/lib/supabase/client"
 import { notFound } from "next/navigation"
 export default async function FriendPage({ params }: { params: Promise<{ id: string }> }) {
+    const supabase=await createClient()
     const { id } = await params
     const {data,error}=await supabase.from("PROFILES").select("*").eq("id",id).maybeSingle()
     if(error) return (<p>Error Message : {error.message}</p>)

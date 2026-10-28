@@ -182,4 +182,13 @@ Ans 3. `Error: Module not found: Can't resolve '@/data/friends'` Build confirms 
 - Under Authentication, enabled Google, copied redirecturl
 - Using that created CLient in google cloud console, clients's ID nad SECRET, Pasted it to supabse and saved
 
-5. 
+5. Created lib/supabase/client.ts (browser)
+6. Created lib/supabase/server.ts (server)
+7. replaced the old supabase
+8. Deleted lib/supabase.ts once nothing imports it.`npm run dev` confirms data is loading.
+`npm run build` failed.Not because of type errors or improper imports.
+9. About to commit
+
+Ans 1. The NEXT_PUBLIC_URL have been told each other
+Ans 2. The server client will be later used to manage sessions while the client.ts will be used to fetch data from the table
+Ans 3. Handles the case where a Server Component isn't allowed to write cookies.
