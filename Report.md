@@ -209,3 +209,153 @@ Ans 1. exchangeCodeForSession as far as understand is the authorization code sen
 Ans 2.  getUser() verifies the user by sending the cookies to the supabase and supabase verifies the cookies, This avoids the problem of displaying out-sync data, we can ensure that the current authenticated user with cookies in the browser
 
 ANs 3. I could not do anything, AuthStatus shows that i am signed in, On clicking `Sign in With Google` I am redired to my homepage displayin same AuthStatus
+
+# Task 12 by claude
+
+1. created signOutButton
+2. Rendered signout button in AuthStatus
+Tested it.. 
+
+Signed In with invalid email
+
+Received `error=invalid_request&error_code=bad_oauth_state&error_description=OAuth+state+has+expired` in url, 
+
+AUTH STATUS SHOWS sign in
+
+sign in succesfull with a valid account
+
+Logged out again.. succsess
+
+Logged in to the same valid account without entering password
+
+Logged Out 
+
+Tried to sign in with `basketball1cec@gmail.com`, previously error was shown , this time AuthStatus shows displayed
+
+3. Created auth.ts and requireUser() helper function
+4. called requireUser in all async child components
+5. Test success. Redirected when not logged in, NO redirection when logged in
+6. Went to supabase dashboard, Applied to	Actions, CHANGED SELECT POLICY TO AUTHENTICATED USERS ONLY
+
+Enable read access for all users SELECT	 authenticated
+
+On reloading friends page the data is not shown
+
+7. No errro on build but error are shown during npm run dev
+8. Not committed yet.
+Issues:
+- friends page data is not loaded
+- Some other build issue
+- Are you supposed to be logged with emails not given in the test emails in the ggogle console
+
+Ans 1. I dont know and i did not understood wat you asked
+ANs 2. use client provides functionalities required for client side like "onclick" handlers, some similar functionalities will be provided by use server
+Ans 3. if return in in front of it then the redirect will be inaccessibe code
+
+## Fixes
+
+1. Friends data not loading
+
+- Still issue perrsist, even closed the localhost and restarted it
+- Verified config
+- Server logs
+- cjflp03@gmail.com 0 null
+
+
+2. Pasted below
+```
+npm run dev
+
+> friends-memories@0.1.0 dev
+> next dev
+
+▲ Next.js 16.4.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.2.178:3000
+- Environments: .env.local
+✓ Ready in 334ms
+✓ Running next.config.ts took 36ms
+- Cache Components enabled
+- Partial Prefetching enabled
+- Experiments (use with caution):
+  ✓ agentFeedback
+
+ GET /friends 200 in 226ms (next.js: 173ms, application-code: 54ms)
+ GET / 200 in 591ms (next.js: 10ms, application-code: 581ms)
+Error: Route "/": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at AuthStatusWrapper (components/AuthStatus.tsx:9:13)
+    at RootLayout (app/layout.tsx:34:11)
+   7 |     return (
+   8 |         <Suspense fallback={<p>Loading User..</p>}>
+>  9 |             <AuthStatus />
+     |             ^
+  10 |         </Suspense>
+  11 |     )
+  12 | }
+ GET /login 200 in 45ms (next.js: 6ms, application-code: 38ms)
+ POST / 200 in 993ms (next.js: 2ms, application-code: 990ms)
+  └─ ƒ <inline action>() in 847ms components/SignOutButton.tsx
+ GET /friends 200 in 60ms (next.js: 4ms, application-code: 56ms)
+ GET /login 200 in 76ms (next.js: 2ms, application-code: 74ms)
+ GET /login 200 in 35ms (next.js: 2ms, application-code: 32ms)
+ GET /memories 200 in 69ms (next.js: 11ms, application-code: 58ms)
+ GET /login 200 in 113ms (next.js: 6ms, application-code: 107ms)
+ GET /login 200 in 39ms (next.js: 1.9ms, application-code: 37ms)
+ GET /login 200 in 50ms (next.js: 3ms, application-code: 48ms)
+ GET /auth/callback?code=6e9c22ad-ffaf-4b01-befb-2d4d750e0c3c 307 in 798ms (next.js: 77ms, application-code: 721ms)
+ GET / 200 in 286ms (next.js: 3ms, application-code: 284ms)
+Error: Route "/": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at AuthStatusWrapper (components/AuthStatus.tsx:9:13)
+    at RootLayout (app/layout.tsx:34:11)
+   7 |     return (
+   8 |         <Suspense fallback={<p>Loading User..</p>}>
+>  9 |             <AuthStatus />
+     |             ^
+  10 |         </Suspense>
+  11 |     )
+  12 | }
+ GET /friends 200 in 499ms (next.js: 3ms, application-code: 496ms)
+Error: Route "/friends": Next.js encountered the unstable value `Date.now()` while prerendering.
+
+This value can change between renders, so it must be either prerendered or computed later.
+
+Ways to fix this:
+  - [dynamic] Render at request time by adding a dynamic data access (e.g. `await connection()`) before this call
+  - [cache] Prerender and cache the value with `"use cache"`
+  - [client] Render the value on the client with `"use client"`
+  - [measure] If the value is for telemetry, use a timing API such as `performance.now()`
+
+Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
+    at AuthStatusWrapper (components/AuthStatus.tsx:9:13)
+    at RootLayout (app/layout.tsx:34:11)
+   7 |     return (
+   8 |         <Suspense fallback={<p>Loading User..</p>}>
+>  9 |             <AuthStatus />
+     |             ^
+  10 |         </Suspense>
+  11 |     )
+  12 | }
+```
+
+3. basketball1cec@gmail.com is not listed and Publishing Status is testing
+

@@ -1,6 +1,8 @@
-import { createClient } from "@/lib/supabase/client"
+import { createClient } from "@/lib/supabase/server"
 import { notFound } from "next/navigation"
 import { Suspense } from "react"
+import { requireUser } from "@/lib/auth";
+import { connection } from "next/server";
 export default function FriendPage({ params }: { params: Promise<{ id: string }> }) {
     return (
         <Suspense fallback={<p>Loading... </p>}>
@@ -10,6 +12,8 @@ export default function FriendPage({ params }: { params: Promise<{ id: string }>
 }
 
 async function FriendDetail({params}:{params:Promise<{id:string}>}) {
+    await connection()
+    await requireUser()
     const supabase=await createClient()
     const { id } = await params
     const {data,error}=await supabase.from("PROFILES").select("*").eq("id",id).maybeSingle()

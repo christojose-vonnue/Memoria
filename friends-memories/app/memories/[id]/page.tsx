@@ -1,6 +1,8 @@
 import NotesSection from "@/components/NotesSection"
 import { memories } from "@/data/memories"
+import { requireUser } from "@/lib/auth"
 import { notFound } from "next/navigation"
+import { connection } from "next/server"
 import { Suspense } from "react"
 export default function MemoryPage({ params }: { params: Promise<{ id: string }> }) {
     return (
@@ -11,6 +13,8 @@ export default function MemoryPage({ params }: { params: Promise<{ id: string }>
 }
 
 async function MemoryDetail({ params }: { params: Promise<{ id: string }> }) {
+    await connection()
+    await requireUser()
     const { id } = await params
     const memory = memories.find((memory => memory.id === id))
     if (!memory) {

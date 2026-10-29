@@ -27,10 +27,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <nav>
-          <Link href={"/"} title="Memoria">Home</Link>
-          <Link href={"/friends"} title="Friends">Friends</Link>
-          <Link href={"/memories"} title="Memories">Memories</Link>
-          <Link href={"/login"} title="Login">Login</Link>
+          <Link href={"/"} title="Memoria">| Home |</Link>
+          <Link href={"/friends"} title="Friends">| Friends |</Link>
+          <Link href={"/memories"} title="Memories">| Memories |</Link>
+          <Link href={"/login"} title="Login">| Login |</Link>
           <AuthStatus />
         </nav>
         {children}
