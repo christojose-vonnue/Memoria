@@ -192,3 +192,20 @@ Ans 3. `Error: Module not found: Can't resolve '@/data/friends'` Build confirms 
 Ans 1. The NEXT_PUBLIC_URL have been told each other
 Ans 2. The server client will be later used to manage sessions while the client.ts will be used to fetch data from the table
 Ans 3. Handles the case where a Server Component isn't allowed to write cookies.
+
+# Task 11 by claude
+
+1. Added redirect urls and site url
+2. Created Sign-In button
+3. Created login page
+4. created route.ts
+5. COmpleted AuthSRtatus (Auth status was correctly updated)
+6. I can verify that
+7. I can't signout
+8. Not commited
+
+Ans 1. exchangeCodeForSession as far as understand is the authorization code sent by google in the url as searchparams when you have valid credentials.the code is used to get session cookies. Our server side createClient() has the features to set cookies, so we require it to receive and save access tokens and refresht tokes received.
+
+Ans 2.  getUser() verifies the user by sending the cookies to the supabase and supabase verifies the cookies, This avoids the problem of displaying out-sync data, we can ensure that the current authenticated user with cookies in the browser
+
+ANs 3. I could not do anything, AuthStatus shows that i am signed in, On clicking `Sign in With Google` I am redired to my homepage displayin same AuthStatus
