@@ -359,3 +359,23 @@ Learn more: https://nextjs.org/docs/messages/blocking-prerender-current-time
 
 3. basketball1cec@gmail.com is not listed and Publishing Status is testing
 
+# Task 13 by claude
+
+1. `members` table created
+2. inserted data
+3. ran policy queries
+4. I think i skipped this step.. i dont recall doing step 4, I went to 5, sorry
+5. Added requireMembere function
+6. swapped all four places
+7. created not invited page, with sign out button
+8. Tested with npm run build no issues
+
+Ans 1. The real lock is auth.ts, filter query , where we verify if the user.email is equal to any valid emails in the memeber email , the other loack is the member table.
+
+Ans 2. Because then this invaild user goes to the requireMember again, they will not pass authorization, and be redirected to not invited only to continue this loop
+
+Ans 3. we get that email from the user object returned by requireUser, this is safe because we are authenticating with supabase by getUser()
+
+**A concern**
+
+If we are authenticating via table, what is the advatage of having google sign in
