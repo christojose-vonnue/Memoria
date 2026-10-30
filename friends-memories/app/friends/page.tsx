@@ -2,7 +2,7 @@ import FriendCard from "@/components/FriendCard";
 import { createClient } from "@/lib/supabase/server";
 import Link from "next/link";
 import { Suspense } from "react";
-import { requireUser } from "@/lib/auth";
+import { requireMember } from "@/lib/auth";
 import { connection } from "next/server";
 export default function FriendsPage() {
   return (
@@ -14,10 +14,9 @@ export default function FriendsPage() {
 
 async function Memories() {
   await connection()
-  const user=await requireUser()
+  await requireMember()
   const supabase= await createClient()
   const {data,error}=await supabase.from("PROFILES").select("*")
-  console.log(user?.email, data?.length, error)
   if(error) return (<p> Failed to load friends {error.message} </p>)
   if(!data) return (<p>You have no friends</p>)
     return (<>
