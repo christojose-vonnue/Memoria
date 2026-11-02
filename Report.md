@@ -379,3 +379,19 @@ Ans 3. we get that email from the user object returned by requireUser, this is s
 **A concern**
 
 If we are authenticating via table, what is the advatage of having google sign in
+
+# Task 15 by claude
+
+1. created Action.ts
+2. rendered Form in the profiles
+3. Edit changes the db and subsequent rendering succesfully
+4. Yes
+5. <form action="javascript:throw new Error('A React form was unexpectedly submitted. If you called form.submit() manually, consider using form.requestSubmit() instead. If you\'re trying to use event.stopPropagation() in a submit event handler, consider also calling event.preventDefault().')"><label>Name --<input required="" value="Christo" name="name"></label><br><label>bio --<textarea name="bio" maxlength="300">Achayan adaa uvvee.. chakara ummaaa...
+Power akkuu</textarea></label><button type="submit">Save</button></form>.. I belive this error is what you expect.. a silent error..??
+6. npm run build is successfull
+
+Answers :
+
+1) To get the latest details / state of user.. we call again requireMember in the form
+2) These name attributes are required to fetch the submited data from . like (formData.get(""))
+3) INstead of silent return, some sort of alert or a UI pop up must be shown

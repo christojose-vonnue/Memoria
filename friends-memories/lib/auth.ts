@@ -36,4 +36,8 @@ export async function requireMember() {
         console.log(email,"is not a valid email");
         redirect("/not-invited")
     }
+    if(!user){
+        redirect("/login")
+    }
+    return user
 }
