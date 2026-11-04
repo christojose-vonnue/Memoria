@@ -3,8 +3,8 @@ import { Suspense } from "react";
 import { connection } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import { requireMember } from "@/lib/auth";
-import updateProfile from "./action";
 import { redirect } from "next/navigation";
+import ProfileForm from "./ProfileForm";
 
 async function ProfileContent() {
     await connection();
@@ -32,17 +32,7 @@ async function ProfileContent() {
             <p>Avatar URL: {profile.avatar_url}</p>
             <hr />
             <h1>Edit your Profile</h1>
-            <form action={updateProfile}>
-                <label>
-                    Name --
-                    <input name="name" defaultValue={profile.name} required />
-                </label><br />
-                <label>
-                    bio --
-                    <textarea name="bio" defaultValue={profile.bio} maxLength={300} />
-                </label>
-                <button type="submit">Save</button>
-            </form>
+            <ProfileForm name={profile.name} bio={profile.bio}/>
         </main>
     );
 }

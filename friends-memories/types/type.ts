@@ -15,3 +15,5 @@ export interface Note{
     id:string,
     text:string
 }
+
+export type FormState = {error ?: string; success?:boolean}
