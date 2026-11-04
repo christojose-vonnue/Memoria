@@ -5,6 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { requireMember } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import ProfileForm from "./ProfileForm";
+import Avatar from "@/components/Avatar";
 
 async function ProfileContent() {
     await connection();
@@ -29,7 +30,7 @@ async function ProfileContent() {
             <h1>My Profile</h1>
             <p>Name: {profile.name}</p>
             <p>Bio: {profile.bio}</p>
-            <p>Avatar URL: {profile.avatar_url}</p>
+            <Avatar name={profile.name} size={150} url={profile.avatar_url} />
             <hr />
             <h1>Edit your Profile</h1>
             <ProfileForm name={profile.name} bio={profile.bio}/>

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { Suspense } from "react"
 import { requireMember } from "@/lib/auth";
 import { connection } from "next/server";
+import { validate } from "uuid"
 export default function FriendPage({ params }: { params: Promise<{ id: string }> }) {
     return (
         <Suspense fallback={<p>Loading... </p>}>
@@ -11,14 +12,19 @@ export default function FriendPage({ params }: { params: Promise<{ id: string }>
     )
 }
 
-async function FriendDetail({params}:{params:Promise<{id:string}>}) {
+async function FriendDetail({ params }: { params: Promise<{ id: string }> }) {
     await connection()
     await requireMember()
-    const supabase=await createClient()
+    const supabase = await createClient()
     const { id } = await params
-    const {data,error}=await supabase.from("PROFILES").select("*").eq("id",id).maybeSingle()
-    if(error) return (<p>Error Message : {error.message}</p>)
-    if(!data) return (<p>You have no friends</p>)
+    if(!validate(id)){
+        notFound()
+    }
+    const { data, error } = await supabase.from("PROFILES").select("*").eq("id", id).maybeSingle()
+    if (error) {
+        return (<p>Error Message : {error.message}</p>)
+    }
+
     if (!data) {
         notFound()
     }

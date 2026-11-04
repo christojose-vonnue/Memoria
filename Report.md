@@ -395,3 +395,38 @@ Answers :
 1) To get the latest details / state of user.. we call again requireMember in the form
 2) These name attributes are required to fetch the submited data from . like (formData.get(""))
 3) INstead of silent return, some sort of alert or a UI pop up must be shown
+
+# Task 16 by claude
+
+1. Added FormState types and exported it.
+2. Made required chages, `prev` is not used anywhere, does it have any implicit meaning or.. why is it placed there
+3. Added Profile form
+4. Passed ProfileForm and props instead of the original template
+5. tested the requirement and proper message is rendered
+6. No issues in npm run build
+
+1) Because we need to use the `useActionState`, which is only available in `use client`.So form Validation is done by client side, and data is updated using server side, both are done seperately. 
+2) That error canbe accessed by state.error, and subsequent messages can be displayed / notified accordingly
+3) state : contains the formState type (contaings error or success information), updateProfile Function used to update the table , isPending.. automatically becomes true and false during DB update
+
+# Task 17 by claude
+
+1. Added avatar_url in Friend type
+2. Added required code to next.config.js
+3. Created Avatar.tsx
+4. called avatar in FriendCard and Profile
+5. created error.tsx
+6. created not-found.tsx
+7. Invalid urls
+
+Error Message : invalid input syntax for type uuid: "nope"
+
+Error Message : invalid input syntax for type uuid: "abc"
+
+Temporarily thrown errror is friend page, returned error.tsx page.. the  the error is removed
+
+Invaild uuids are reroutedmto notFound.tsx wriiten in the app folder
+
+1. The Image tag requires images saved locally as the default behaviour is to prevent loading images of external links unless you add remote patterns for images  in the config..
+2. error.tsx requires client side functions like cliking a button
+3. In my code friend.name.at(0)  is displayed as paragraph tag for now 

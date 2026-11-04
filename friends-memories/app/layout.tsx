@@ -31,7 +31,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <Link href={"/friends"} title="Friends">| Friends |</Link>
           <Link href={"/memories"} title="Memories">| Memories |</Link>
           <Link href={"/login"} title="Login">| Login |</Link>
-          <Link href="/profile">| Profile |</Link>
+          <Link href={"/profile"} title="Profile">| Profile |</Link>
           <AuthStatus />
         </nav>
         {children}

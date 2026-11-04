@@ -1,7 +1,8 @@
 export interface Friend{
     id:string,
     name:string,
-    bio:string
+    bio:string,
+    avatar_url:string | null
 }
 
 export interface Memory{

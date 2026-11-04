@@ -22,8 +22,8 @@ async function Memories() {
     return (<>
         <h1>Friends</h1>
         {data.map(
-        friend => <Link key={friend.id} href={`friends/${friend.id}`}>
-          <FriendCard key={friend.id} name={friend.name} bio={friend.bio} />
+        friend => <Link key={friend.id} href={`/friends/${friend.id}`}>
+          <FriendCard key={friend.id} name={friend.name} bio={friend.bio} url={friend.avatar_url} />
         </Link>
 
       )}
