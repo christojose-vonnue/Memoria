@@ -430,3 +430,16 @@ Invaild uuids are reroutedmto notFound.tsx wriiten in the app folder
 1. The Image tag requires images saved locally as the default behaviour is to prevent loading images of external links unless you add remote patterns for images  in the config..
 2. error.tsx requires client side functions like cliking a button
 3. In my code friend.name.at(0)  is displayed as paragraph tag for now 
+
+# Task 18 by claude
+
+1. Ran and understood the queries
+2. Added seed data.
+3. Checked the policies
+Blueprint
+
+1. Updated as requested
+2. FEtched all memories for now.. (we can filter anytime later)
+3. Implemented all requirements
+4. Deleted data/memories, no issues in nom run build
+5. Left NotesSection alone

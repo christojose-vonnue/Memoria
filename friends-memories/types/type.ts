@@ -8,8 +8,9 @@ export interface Friend{
 export interface Memory{
     id:string,
     title:string,
-    date:string,
-    description:string
+    memory_date:string | null,
+    description:string,
+    status: "pending" | "approved"
 }
 
 export interface Note{
