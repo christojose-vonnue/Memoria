@@ -15,7 +15,7 @@ async function Memories() {
     await connection()
     await requireMember() 
     const supabase=await createClient()
-    const {data , error}=await supabase.from("memories").select("title,id")
+    const {data , error}=await supabase.from("memories").select("title,id").filter("status","eq","approved")
     if(!data || error) throw new Error("Memories fetch failed")
     return (<>
         <h1>Memories</h1>
@@ -25,5 +25,7 @@ async function Memories() {
                 <hr/>
             </Link>
         ))}
+        <br/><br/>
+        <Link href={`/memories/new`} title="New Memory">Add a MEMORY</Link>
     </>)
 }

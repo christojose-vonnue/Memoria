@@ -5,7 +5,7 @@ import { createClient } from "@/lib/supabase/server";
 import { FormState } from "@/types/type";
 import { revalidatePath } from "next/cache";
 
-export default async function updateProfile(prev:FormState,formData: FormData) : Promise<FormState> {
+export default async function updateProfile(_prev:FormState,formData: FormData) : Promise<FormState> {
     const user = await requireMember();
     if (!user) {
         return {error:"User Not Found"};
