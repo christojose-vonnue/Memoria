@@ -443,3 +443,18 @@ Blueprint
 3. Implemented all requirements
 4. Deleted data/memories, no issues in nom run build
 5. Left NotesSection alone
+
+# Task 19 by claude
+
+1. Added /memories/new LINK
+2. Created page.tsx with the common suspense - connection pattern
+3. Created action returning FormState
+4. Implemented useActionState
+5. Test succcess, correct insertion
+6. Added a new page memories/pending displaying all pending memeories
+7. Rerouted to not-inivted
+8. Success
+
+1) status is set as default value 'pending' and created_by has default value of now().. These values are inserted by supabase when a successful insertion is inserted
+2) I dont know
+3) Because it displays memories from cache.Withou revalidate that will not change until a hard refresh
