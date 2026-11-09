@@ -458,3 +458,21 @@ Blueprint
 1) status is set as default value 'pending' and created_by has default value of now().. These values are inserted by supabase when a successful insertion is inserted
 2) I dont know
 3) Because it displays memories from cache.Withou revalidate that will not change until a hard refresh
+
+# Task 20 by claude
+
+1. Changed Note type
+2. Added Notes.tsx, which renders EXisting NOtes form notes table
+3. action.ts is implemented
+4. Removed NotesSEction  component whith NotesForm
+5. Rendered FOrm and Notes
+6. Revalidate commented, and the page wasnt refershed
+7. Passed
+8. Done.. {body} sending... will be displayed in the UI immediately
+9. No issues in build
+
+1) Form requires input buttons, and client functionalities, while form requires server side directives like "action" and server client to send the data.
+
+2) I dont know,
+
+3) I added new note, the databse was updated in backend but it was not  displayed in the UI
